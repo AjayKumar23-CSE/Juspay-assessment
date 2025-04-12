@@ -1,13 +1,26 @@
-import React from "react";
+import React from 'react';
 
 export default function Icon({ name, size = 20, className = "" }) {
+  const iconMap = {
+    'arrow-right': '→',
+    'undo': '↩',
+    'redo': '↪',
+    'plus': '+',
+    'play': '▶',
+    'chat': '💬',
+    'light-bulb': '💡',
+    'refresh': '🔄',
+    'location-marker': '📍'
+  };
+
   return (
-    <svg
-      className={`fill-current ${className}`}
-      width={size.toString() + "px"}
-      height={size.toString() + "px"}
+    <span 
+      className={`inline-block ${className}`}
+      style={{ fontSize: size }}
+      role="img"
+      aria-label={name}
     >
-      <use xlinkHref={`/icons/solid.svg#${name}`} />
-    </svg>
+      {iconMap[name] || '○'}
+    </span>
   );
 }
